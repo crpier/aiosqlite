@@ -59,7 +59,7 @@ class Connection(Thread):
         iter_chunk_size: int,
         loop: Optional[asyncio.AbstractEventLoop] = None,
     ) -> None:
-        super().__init__()
+        super().__init__(daemon=True)
         self._running = True
         self._connection: Optional[sqlite3.Connection] = None
         self._connector = connector
